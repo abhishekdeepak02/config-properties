@@ -10,7 +10,7 @@ server:
   port: 8076
 
 test:
-  name: Abhishek Deepak
+  name: Microservice - develope - test
 
 eureka:
   client:
