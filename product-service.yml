@@ -10,7 +10,7 @@ server:
   port: 8076
 
 test:
-  name: auto-config
+  name: Abhishek
 
 eureka:
   client:
