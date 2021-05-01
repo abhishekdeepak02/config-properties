@@ -10,7 +10,7 @@ server:
   port: 8076
 
 test:
-  name: Abhishek-deepak
+  name: Configration flashed!
 
 eureka:
   client:

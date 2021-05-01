@@ -25,4 +25,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 
 test:
-  name: Deepak kumar
+  name: Developer - config flashed!
