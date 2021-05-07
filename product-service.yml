@@ -5,7 +5,11 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/product-service
-      
+  security:
+    oauth2:
+      resourceserver: 
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/microservice-realm    
 server:
   port: 8076
 
