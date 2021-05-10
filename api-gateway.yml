@@ -13,8 +13,7 @@ spring:
       - id: payment-service
         uri: lb://PAYMENT-SERVICE
         predicates:
-        - Path=/payment/**
-#        
+        - Path=/payment/**  
       - id: product-service
         uri: lb:/PRODUCT-SERVICE
         predicates: 
@@ -29,6 +28,7 @@ spring:
           spring-cloud-gateway-client:
             client-id: spring-cloud-gateway-client
             client-secret: 1d062984-4804-41ef-b36d-f7412a62ebac   
+            provider: keycloak
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client 
     
