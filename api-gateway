@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+#      default-filters:
+#      - TokenRelay      #to allow service to trnsfer the token to dependent service to get authenticated.
+      routes:
+      - id: order-service
+        uri: lb://ORDER-SERVICE
+        predicates:
+        - Path=/order/**
+      - id: payment-service
+        uri: lb://PAYMENT-SERVICE
+        predicates:
+        - Path=/payment/**
+#        
+      - id: product-service
+        uri: lb:/PRODUCT-SERVICE
+        predicates: 
+        - Path=/api/product/**
+  security:
+    oauth2:
+      client: 
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/auth/realms/microservice-realm
+        registration:
+          spring-cloud-gateway-client:
+            client-id: spring-cloud-gateway-client
+            client-secret: 1d062984-4804-41ef-b36d-f7412a62ebac   
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client 
+    
+server:
+  port: 8989
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    
+
+        
