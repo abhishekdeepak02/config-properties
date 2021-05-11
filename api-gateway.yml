@@ -3,8 +3,8 @@ spring:
     name: API-GATEWAY
   cloud:
     gateway:
-     default-filters:
-     - TokenRelay      #to allow service to trnsfer the token to dependent service to get authenticated.
+#      default-filters:
+#      - TokenRelay      #to allow service to trnsfer the token to dependent service to get authenticated.
       routes:
       - id: order-service
         uri: lb://ORDER-SERVICE
