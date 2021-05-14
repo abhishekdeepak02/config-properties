@@ -3,7 +3,7 @@ spring:
     name: API-GATEWAY
   cloud:
     gateway:
-      default-filters: TokenRelay
+#       default-filters: TokenRelay
 #      - TokenRelay      #to allow service to trnsfer the token to dependent service to get authenticated.
       routes:
       - id: order-service
@@ -22,19 +22,19 @@ spring:
         uri: lb:/INVENTORY-SERVICE
         predicates: 
         - Path=/api/inventory/**
-  security:
-    oauth2:
-      client: 
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8080/auth/realms/microservice-realm
-        registration:
-          spring-cloud-gateway-client:
-            client-id: spring-cloud-gateway-client
-            client-secret: 0f551086-0f0e-4815-b284-e9fd3ff3531e   
-            provider: keycloak
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client 
+#   security:
+#     oauth2:
+#       client: 
+#         provider:
+#           keycloak:
+#             issuer-uri: http://localhost:8080/auth/realms/microservice-realm
+#         registration:
+#           spring-cloud-gateway-client:
+#             client-id: spring-cloud-gateway-client
+#             client-secret: 0f551086-0f0e-4815-b284-e9fd3ff3531e   
+#             provider: keycloak
+#             authorization-grant-type: authorization_code
+#             redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client 
     
 server:
   port: 8989
