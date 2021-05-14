@@ -9,7 +9,7 @@ spring:
       - id: order-service
         uri: lb://ORDER-SERVICE
         predicates:
-        - Path=/order/**
+        - Path=/api/order/**
       - id: payment-service
         uri: lb://PAYMENT-SERVICE
         predicates:
@@ -18,6 +18,10 @@ spring:
         uri: lb:/PRODUCT-SERVICE
         predicates: 
         - Path=/api/product/**
+      - id: inventory-service
+        uri: lb:/INVENTORY-SERVICE
+        predicates: 
+        - Path=/api/inventory/**
   security:
     oauth2:
       client: 
