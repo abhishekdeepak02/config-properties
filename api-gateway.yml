@@ -3,7 +3,8 @@ spring:
     name: API-GATEWAY
   cloud:
     gateway:
-      default-filters: TokenRelay
+      default-filters: 
+        - TokenRelay
       routes:
       - id: order-service
         uri: lb://ORDER-SERVICE
