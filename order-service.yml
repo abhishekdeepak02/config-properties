@@ -20,6 +20,12 @@ spring:
     show-sql: true
   application:
     name: ORDER-SERVICE
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-id: http://localhost:8080/auth/realms/microservice-realm
+    
     
 eureka:
   client:
