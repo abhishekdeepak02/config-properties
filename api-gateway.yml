@@ -37,9 +37,7 @@ spring:
             provider: keycloak
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client 
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/auth/realms/microservice-realm
+      
 server:
   port: 8989
   
